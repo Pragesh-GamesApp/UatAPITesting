@@ -58,34 +58,34 @@ describe("Recent Updated Users", ()=>{
             expect(response.status).to.be.eq(200)
         })
 
-        // it(`Data should have property userId and its value should be Number`,()=>{
-        //     expect(data.data[0]).to.have.property('userId')
-        //     expect(data.data[0].userId).to.be.a('number')
+        it(`Data should have property userId and its value should be Number`,()=>{
+            expect(data.data[0]).to.have.property('userId')
+            expect(data.data[0].userId).to.be.a('number')
 
-        // })
+        })
 
-        // it(`Data should have property state and its value should be String`,()=>{
-        //     expect(data.data[0]).to.have.property('state')
-        //     expect(data.data[0].state).to.be.a('number')
-        // })
+        it(`Data should have property state and its value should be String`,()=>{
+            expect(data.data[0]).to.have.property('state')
+            expect(data.data[0].state).to.be.a('number')
+        })
 
-        // it(`Data should have property serverAddress and its value should be String`,()=>{
-        //     expect(data.data[0]).to.have.property('serverAddress')
-        //     expect(data.data[0].serverAddress).to.be.a('string')
-        // })
+        it(`Data should have property serverAddress and its value should be String`,()=>{
+            expect(data.data[0]).to.have.property('serverAddress')
+            expect(data.data[0].serverAddress).to.be.a('string')
+        })
 
-        // it(`Data should have property tableType and its value should be Number`,()=>{
-        //     expect(data.data[0]).to.have.property('tableType')
-        //     expect(data.data[0].tableType).to.be.a('number')
-        // })
-        // it(`Data Should have property entryFee and value should be Number`,()=>{
-        //     expect(data.data[0]).to.have.property('entryFee')
-        //     expect(data.data[0].entryFee).to.be.a('number')
-        // })
-        // it(`Data Should have property time and value should be Success`,()=>{
-        //     expect(data.data[0]).to.have.property('time')
-        //     expect(data.data[0].time).to.be.a('string')
-        // })
+        it(`Data should have property tableType and its value should be Number`,()=>{
+            expect(data.data[0]).to.have.property('tableType')
+            expect(data.data[0].tableType).to.be.a('number')
+        })
+        it(`Data Should have property entryFee and value should be Number`,()=>{
+            expect(data.data[0]).to.have.property('entryFee')
+            expect(data.data[0].entryFee).to.be.a('number')
+        })
+        it(`Data Should have property time and value should be Success`,()=>{
+            expect(data.data[0]).to.have.property('time')
+            expect(data.data[0].time).to.be.a('string')
+        })
     })
 })
 
