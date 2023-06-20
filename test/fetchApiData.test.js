@@ -27,7 +27,17 @@ const failedCollection = db.collection(failedCollectionName)
 async function fetchApiData(endPoint = ''){
     let baseUrl = process.env.FETCHAPIDATAAPI
     let url = baseUrl + endPoint
-    let response = await fetch(url)
+    // let APIKEY= req.headers.x-api-key
+    // if(APIKEY !== "null"){
+
+    // }
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.APIDATAKEY
+        }
+    })
     return response
 }
 

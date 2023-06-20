@@ -23,7 +23,8 @@ async function getPastGames(count, skip){
     const response = await fetch(url,{
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.PASTGAMEAPIKEY
         },
         body:JSON.stringify({
             count: count,

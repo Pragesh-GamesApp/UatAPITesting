@@ -4,7 +4,13 @@ require('dotenv').config()
 
 async function serverList(){
     let url = process.env.SERVERLISTAPI
-    let response = await fetch(url)
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.SERVERLISTAPIKEY
+        }
+    })
     return response
 }
 

@@ -23,7 +23,9 @@ async function fetchGameReportData(count, skip){
     const response = await fetch(url,{
         method: "GET",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.GAMEREPORTAPIKEY
+            
         }
     });
     return response

@@ -32,7 +32,8 @@ async function getPastGameApis(gameId){
     const response = await fetch(url,{
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.PASTAPIKEY
         },
         body:JSON.stringify({
             gameId: gameId

@@ -22,7 +22,13 @@ const collection=  db.collection(collectionName)
 async function fetchPlayerStatement(endPoint = ''){
     let baseUrl = process.env.FETCHPLAYERSTATEMENTAPI
     let url = baseUrl + endPoint
-    let response = await fetch(url)
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.PLAYERSTATEMENTAPIKEY
+        }
+    })
     
     return response
 }

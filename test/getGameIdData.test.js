@@ -24,7 +24,8 @@ async function getGameIdData(gameRoundId){
     const response = await fetch(url,{
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.GAMEIDDATAKEY
         },
         body:JSON.stringify({
             gameRoundId: gameRoundId

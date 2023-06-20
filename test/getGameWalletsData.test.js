@@ -21,7 +21,13 @@ const collection=  db.collection(collectionName)
 async function gameWalletsAPIData(endPoint = ''){
     let baseUrl = process.env.GAMEWALLETSAPI
     let url = baseUrl + endPoint
-    let response = await fetch(url)
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.GAMEWALLETSDATAAPIKEY
+        }
+    })
     return response
 }
 // Game Wallets API Testing (Check Object Property)

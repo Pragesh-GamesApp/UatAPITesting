@@ -20,7 +20,13 @@ const collection=  db.collection(collectionName)
 async function playerWalletsAPIData(endPoint = ''){
     let baseUrl = process.env.PLAYERWALLETSAPI
     let url = baseUrl + endPoint
-    let response = await fetch(url)
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.PLAYERWALLETDATAAPIKEY
+        }
+    })
     return response
 }
 

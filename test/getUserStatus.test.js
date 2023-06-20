@@ -72,7 +72,13 @@ async function usersIdDatabase(){
 async function getUserStatus(endPoint = ''){
     let baseUrl = process.env.GETUSERSTATUSAPI
     let url = baseUrl + endPoint
-    let response = await fetch(url)
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-api-key": (undefined !== undefined)?undefined : process.env.USERSTATUSAPIKEY
+        }
+    })
     return response
 }
 
@@ -88,7 +94,7 @@ describe("User Status API", ()=>{
         before(async()=>{
 
             test = await usersIdDatabase()
-            console.log(test, "test")
+            // console.log(test, "test")
             response= await getUserStatus(userId)
             data = await response.json()
             // console.log(data)
