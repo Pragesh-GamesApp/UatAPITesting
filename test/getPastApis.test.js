@@ -55,6 +55,7 @@ describe("Get Past API", ()=>{
             const passedData = await PassedCollection.find({gameRoundId: gameId}, {projection:{_id:0}}).sort({time: -1}).toArray()
             const failedData = await failedCollection.find({gameRoundId: gameId}, {projection:{_id:0}}).sort({time: -1}).toArray()
             // const dbData = result.json()
+            await client.close()
             passed = JSON.parse(JSON.stringify(passedData));
             failed = JSON.parse(JSON.stringify(failedData));
 

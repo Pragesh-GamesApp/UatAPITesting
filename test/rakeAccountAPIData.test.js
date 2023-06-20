@@ -46,6 +46,7 @@ describe("Rake API", ()=>{
         before(async()=>{
 
             const result = await collection.find().limit(dataLimit).sort({date: -1}).toArray()
+            await client.close()
             // const dbData = result.json()
             test = JSON.parse(JSON.stringify(result));
         

@@ -44,6 +44,7 @@ describe("Game Id Data", ()=>{
         let test
         before(async()=>{
             const result = await collection.find({gameRoundId:gameRoundId},{projection:{_id:0}}).toArray();
+            await client.close()
             test = JSON.parse(JSON.stringify(result));
             // console.log(test, "DataBase Response")
 

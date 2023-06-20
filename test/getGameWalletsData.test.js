@@ -9,7 +9,7 @@ const client = new MongoClient(DBURI)
 const dbName = "bookkeeper";
 const collectionName = "gameWallets"
 
-
+console.log('getGame => ' + DBURI);
 client.connect(DBURI)
 .then(() => console.log('Database Connected Successfully'))
 .catch(error => console.log('Failed to connect', error))
@@ -41,7 +41,7 @@ describe("Game Wallets API", ()=>{
         let test
         before(async()=>{
             const result = await collection.find().toArray();
-
+            await client.close()
             // console.log(result, "DB Response")
             test = JSON.parse(JSON.stringify(result));
             // console.log(test, "DataBase Response")

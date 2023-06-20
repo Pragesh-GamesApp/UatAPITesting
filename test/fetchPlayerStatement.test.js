@@ -45,6 +45,7 @@ describe("Fetch Player Statement API", ()=>{
         let test
         before(async()=>{
             const result = await collection.find({playerId: userId}, {projection:{_id:0}}).toArray()
+            await client.close()
             // const dbData = result.json()
             test = JSON.parse(JSON.stringify(result));
             // console.log(test, "test Data")

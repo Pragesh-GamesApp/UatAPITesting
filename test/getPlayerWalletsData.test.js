@@ -41,6 +41,7 @@ describe("Player Wallets API", ()=>{
         let test
         before(async()=>{
             const result = await collection.find({}).limit(5).sort({date:-1}).toArray()
+            await client.close()
             // const dbData = result.json()
             test = JSON.parse(JSON.stringify(result));
             // console.log(test, "Testing")

@@ -51,7 +51,9 @@ describe("FetchApiData", ()=>{
         before(async()=>{
             const passedData = await PassedCollection.find({gameRoundId: gameId}, {projection:{_id:0}}).sort({time: -1}).toArray()
             const failedData = await failedCollection.find({gameRoundId: gameId}, {projection:{_id:0}}).sort({time: -1}).toArray()
+            await client.close()
             // const dbData = result.json()
+
             passed = JSON.parse(JSON.stringify(passedData));
             failed = JSON.parse(JSON.stringify(failedData));
             

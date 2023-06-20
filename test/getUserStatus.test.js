@@ -21,6 +21,7 @@ async function gameIdDatabase(userId){
     const collection_1=  db.collection(collectionName_1)
 
     const result = await collection_1.find({"playerId": (userId).toString()}, {projection:{_id:0}}).toArray()
+    await client.close()
     // const dbData = result.json()
     let test = JSON.parse(JSON.stringify(result));
     // console.log(test, "DB Data")
@@ -34,6 +35,8 @@ async function gameIdDatabase(userId){
 async function usersIdDatabase(){
 
     const DBURI = process.env.DBURI
+    console.log(DBURI, "DB URI")
+    console.log(__dirname);
 
     const client = new MongoClient(DBURI)
     const dbName = "gameDB";
@@ -46,6 +49,7 @@ async function usersIdDatabase(){
     const db =  client.db(dbName)
     const collection=  db.collection(collectionName)
     const result = await collection.find({"userId": userId}, {projection:{_id:0}}).toArray()
+    await client.close()
             // const dbData = result.json()
     let test = JSON.parse(JSON.stringify(result));
     let gameIdData = await gameIdDatabase(userId)

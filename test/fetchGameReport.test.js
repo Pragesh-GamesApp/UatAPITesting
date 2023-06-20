@@ -43,6 +43,7 @@ describe("FetchGameReport", ()=>{
         let test
         before(async()=>{
             const result = await collection.find({}, {projection:{_id:0}}).limit(count).skip(skip).sort({time:-1}).toArray()
+            await client.close()
             test = JSON.parse(JSON.stringify(result));
             // console.log(test, "collection")
             response= await fetchGameReportData(count, skip)

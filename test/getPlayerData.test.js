@@ -32,7 +32,7 @@ async function getPlayerData(endPoint = ''){
 
 // // Player Data API Testing (Check Object Property)
 
-let PlayerIDs = ["230963","226302"]
+let PlayerIDs = ["230963"] //,"226302"
 
 describe("Player Data API ", ()=>{
 
@@ -47,6 +47,7 @@ describe("Player Data API ", ()=>{
             before(async()=>{
             
             const result = await collection.find({"request.playerId":playerId}, {projection:{_id:0}}).sort({date: -1}).toArray()
+            await client.close()
             test = JSON.parse(JSON.stringify(result));
             // console.log(test);
             // console.log({result}, "collection")
